@@ -5,6 +5,7 @@
 		<groupId>org.cfeclipse.cflint</groupId>
 		<artifactId>cflint</artifactId>
 		<version>1.3.0</version>
+	    <relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>org.cfeclipse.cflint</artifactId>
 	<packaging>eclipse-plugin</packaging>
@@ -34,7 +35,45 @@
 			<artifactId>CFLint</artifactId>
 			<version>${cflint.version}</version>
 		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.22.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>tools.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>3.3.0</version>
+		</dependency>		
+		<dependency>
+		    <groupId>tools.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>tools.jackson.module</groupId>
+		    <artifactId>jackson-module-jaxb-annotations</artifactId>
+		    <version>3.3.0</version>
+		</dependency>		
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.23</version>
+		</dependency>		
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>2.0.20</version>
+		</dependency>	
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>2.0.20</version>
+		</dependency>	
 	</dependencies>
+		
+		
 
 	<build>
 		<sourceDirectory>src/</sourceDirectory>
@@ -50,15 +89,15 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.16.0</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.1</version>
+				<version>3.11.0</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
@@ -68,7 +107,7 @@
 						<configuration>
 							<stripVersion>true</stripVersion>
 							<outputDirectory>${dependency.dir}</outputDirectory>
-							<includeGroupIds>com.github.cflint,com.fasterxml.jackson.core,com.fasterxml.jackson.module,org.slf4j,commons-io</includeGroupIds>
+							<includeGroupIds>com.github.cflint,tools.jackson.core,tools.jackson.module,com.fasterxml.jackson.core,org.slf4j,commons-io</includeGroupIds>
 						</configuration>
 					</execution>
 				</executions>
